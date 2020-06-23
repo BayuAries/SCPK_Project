@@ -11,11 +11,6 @@ class KaderController extends Controller
     	return view('kader.index');
     }
 
-<<<<<<< HEAD
-    public function admin()
-    {
-        return view('kader.admin');
-=======
      public function periksa()
     {
     	return view('kader.periksa');
@@ -27,6 +22,5 @@ class KaderController extends Controller
     public function data()
     {
     	return view('kader.data');
->>>>>>> 2a6f3370fca3ff3cf751f6163c3e2e326892469a
     }
 }
