@@ -21,3 +21,4 @@ Route::get('/kader', 'KaderController@index');
 Route::get('/kader/periksa', 'KaderController@periksa');
 Route::get('/kader/hasil', 'KaderController@hasil');
 Route::get('/kader/data', 'KaderController@data');
+Route::get('/kader/admin', 'KaderController@admin');
