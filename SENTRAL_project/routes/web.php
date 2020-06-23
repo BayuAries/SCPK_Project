@@ -18,3 +18,4 @@ Route::get('/', function () {
 });
 
 Route::get('/kader', 'KaderController@index');
+Route::get('/kader/admin', 'KaderController@admin');

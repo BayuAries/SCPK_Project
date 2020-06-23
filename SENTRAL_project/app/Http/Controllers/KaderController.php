@@ -10,4 +10,9 @@ class KaderController extends Controller
     {
     	return view('kader.index');
     }
+
+    public function admin()
+    {
+        return view('kader.admin');
+    }
 }
