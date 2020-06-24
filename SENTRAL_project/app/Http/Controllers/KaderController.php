@@ -27,4 +27,5 @@ class KaderController extends Controller
     {
         return view('kader.admin');
     }
+    
 }
