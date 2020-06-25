@@ -4,8 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Kader;
+
 class KaderController extends Controller
 {
+
+
     public function index()
     {
     	return view('kader.index');
@@ -28,4 +32,25 @@ class KaderController extends Controller
         return view('kader.admin');
     }
     
+    //insert table kader
+    public function store(Request $req)
+    {
+
+        \App\Kader::create($req->all());
+
+
+        return redirect('/login');
+    }
+
+    #login
+    public function login(Request $req)
+    {
+        if(Kader::attempt($req->only('email','password'))){
+            return redirect('/kader');
+        }
+
+        return redirect('/login');
+    }
+
+
 }
