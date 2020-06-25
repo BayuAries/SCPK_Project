@@ -32,3 +32,7 @@ Route::get('/kader/hasil', 'KaderController@hasil');
 Route::get('/kader/data', 'KaderController@data');
 Route::get('/kader/admin', 'KaderController@admin');
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
