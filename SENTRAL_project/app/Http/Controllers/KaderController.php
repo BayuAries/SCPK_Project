@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Kader;
+use App\Ortu;
 
 class KaderController extends Controller
 {
@@ -25,32 +26,17 @@ class KaderController extends Controller
     }
     public function data()
     {
-    	return view('kader.data');
+        $ortu = Ortu::all();
+        //dd($ortu);
+        return view('kader.data',['ortu'=>$ortu]);
     }
     public function admin()
     {
         return view('kader.admin');
     }
-    
-    //insert table kader
-    public function store(Request $req)
+    public function dataPeriksa()
     {
-
-        \App\Kader::create($req->all());
-
-
-        return redirect('/login');
+        return view('kader.data_periksa');
     }
-
-    #login
-    public function login(Request $req)
-    {
-        if(Kader::attempt($req->only('email','password'))){
-            return redirect('/kader');
-        }
-
-        return redirect('/login');
-    }
-
 
 }

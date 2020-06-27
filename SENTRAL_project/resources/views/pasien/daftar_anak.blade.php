@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.dashboard')
 
 @section('title','Daftar')
 
@@ -12,31 +12,29 @@
             <div class="card">
               <div class="card-header">
                 <h3 class="card-title">
-                  <i class="fas fa-chart-pie mr-1"></i>
-                  Login Kader
+                  Form Daftar Pasien
                 </h3>
               </div><!-- /.card-header -->
+
               <div class="card-body">
                 <div class="tab-content p-0">
-                <!-- Form Daftar -->
-                    <form action="/kader/login" method="post">
-                        {{ csrf_field() }}
-                      <div class="form-row">
+                  <!-- Form Daftar -->
+                      <form action="/daftar_anak/store" method="post">
+                          {{ csrf_field() }}
                         <div class="form-group col-md-6">
-                          <label for="inputEmail">Email</label>
-                          <input type="text" class="form-control" name="email" required="required">
+                          <label for="inputtinggal">Nama Anak</label>
+                          <input type="text" class="form-control" name="nama_anak" required="required">
                         </div>
                         <div class="form-group col-md-6">
-                          <label for="inputPassword">Password</label>
-                          <input type="password" class="form-control" name="password" required="required">
+                          <label for="inputtinggal">Usia Anak</label>
+                          <input type="text" class="form-control" name="usia_anak" required="required">
                         </div>
-                      </div>
-                      <button type="submit" class="btn btn-primary">Login</button>
-                    </form>
+                        <button type="submit" class="btn btn-primary">Daftar</button>
+                     </form>
                 </div>
               </div><!-- /.card-body -->
             </div>
           </section> 
-     </div> 
+        </div> 
     </div>    
 @endsection

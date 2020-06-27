@@ -15,17 +15,22 @@ class OrtuController extends Controller
 
     public function storeOrtu(Request $req)
     {
-    	\App\Ortu::create($req->all());
+    	$ortu = Ortu::create($req->all());
 
-    	//dd($req->all());
-        // return redirect('/kader/daftar_anak/{{$req->id}}');
-        return redirect('/kader/admin');
+    	//dd($ortu->id);
+        // return redirect('/daftar_anak/{{$req->id}}');
+        //return redirect('/daftar_anak/{{$ortu->id}}');
+        return view('kader.data');
     }
 
     public function daftarAnak(Request $req, $id)
     {
-    	return view('pasien.daftar_anak');
+        dd($id);
+    	//return view('pasien.daftar_anak');
     }
 
-
+    public function storeAnak($id,Request $req)
+    {
+        dd($id, $req->all());
+    }
 }

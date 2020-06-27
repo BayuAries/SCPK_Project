@@ -1,6 +1,6 @@
 @extends('layouts/dashboard')
 
-@section('title','Data')
+@section('title','Data Periksa')
 
 @section('container')
 
@@ -31,7 +31,7 @@
               <div class="card-header">
                 <h3 class="card-title">
                   <i class="fas fa-chart-pie mr-1"></i>
-                  Data Orang Tua
+                  Data Pemeriksaan
                 </h3>
               </div><!-- /.card-header -->
               <div class="card-body">
@@ -42,21 +42,31 @@
                       <table class="table table-striped">
                         <thead>
                           <tr>
-                            <th scope="col">ID</th>
+                            <th scope="col">No</th>
                             <th scope="col">Nama</th>
-                            <th scope="col">No.Telepon</th>            
-                            <th scope="col">Alamat</th>
+                            <th scope="col">ID</th>            
+                            <th scope="col">Hasil Pengukuran Gizi</th>
                           </tr>
                         </thead>
                         <tbody>
-                          @foreach($ortu as $data)
                           <tr>
-                            <th scope="row">{{$data->id}}</th>
-                            <td>{{$data->nama}}</td>
-                            <td>{{$data->no_tlp}}</td>
-                            <td>{{$data->alamat}}</td>
+                            <th scope="row">1</th>
+                            <td>Dadang</td>
+                            <td>28</td>
+                            <td>Normal</td>
                           </tr>
-                          @endforeach
+                          <tr>
+                            <th scope="row">2</th>
+                            <td>Jainab</td>
+                            <td>20</td>
+                            <td>Kurus</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">3</th>
+                            <td>Aji</td>
+                            <td>13</td>
+                            <td>Obesitas</td>
+                          </tr>
                         </tbody>
                       </table>
                     </div> 

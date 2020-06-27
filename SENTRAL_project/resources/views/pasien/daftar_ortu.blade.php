@@ -15,12 +15,12 @@
                   Form Daftar Pasien
                 </h3>
               </div><!-- /.card-header -->
+
               <div class="card-body">
                 <div class="tab-content p-0">
-                <!-- Form Daftar -->
-                    <form action="/kader/daftar_ortu/store" method="post">
-                        {{ csrf_field() }}
-                      </div>
+                  <!-- Form Daftar -->
+                      <form action="/daftar_ortu/store" method="post">
+                          {{ csrf_field() }}
                       <div class="form-group">
                         <label for="inputNama">Nama Lengkap</label>
                         <input type="text" name="nama" class="form-control"  required="required">
@@ -34,12 +34,14 @@
                           <label for="inputtinggal">Alamat Tinggal</label>
                           <input type="text" class="form-control" name="alamat" required="required">
                         </div>
-                      <button type="submit" class="btn btn-primary">Daftar</button>
-                    </form>
+                        <button type="submit" class="btn btn-primary" onclick="swal">Daftar</button>
+                      </div>
+                     </form>
                 </div>
               </div><!-- /.card-body -->
             </div>
           </section> 
-     </div> 
+        </div> 
     </div>    
 @endsection
+

@@ -18,21 +18,26 @@ Route::get('/', function () {
 });
 
 Route::get('/daftar', 'PagesController@daftar');
-Route::get('/login', 'PagesController@login');
-Route::post('/kader/store', 'KaderController@store');
-Route::post('/kader/login', 'KaderController@login');
+//Route::get('/login', 'AuthController@login');
+Route::post('/postlogin', 'AuthController@postlogin');
 
-Route::get('/kader/daftar_ortu', 'OrtuController@daftarOrtu');
-Route::post('/kader/daftar_ortu/store', 'OrtuController@storeOrtu');
-Route::get('/kader/daftar_anak/{id}', 'OrtuController@daftarAnak');
-
-Route::get('/kader', 'KaderController@index');
-Route::get('/kader/periksa', 'KaderController@periksa');
-Route::get('/kader/hasil', 'KaderController@hasil');
-Route::get('/kader/data', 'KaderController@data');
-Route::get('/kader/admin', 'KaderController@admin');
 
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/daftar_ortu', 'OrtuController@daftarOrtu');
+Route::post('/daftar_ortu/store', 'OrtuController@storeOrtu');
+Route::get('/daftar_anak/{id}', 'OrtuController@daftarAnak');
+Route::post('/daftar_anak/{id}/store', 'OrtuController@storeAnak');
+
+Route::get('/kader', 'KaderController@admin');
+Route::get('/periksa', 'KaderController@periksa');
+Route::get('/hasil', 'KaderController@hasil');
+Route::get('/data/periksa', 'KaderController@dataPeriksa');
+Route::get('/admin', 'KaderController@admin');
+Route::get('/data', 'KaderController@data');
+
+
+

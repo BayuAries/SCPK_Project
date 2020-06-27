@@ -57,6 +57,20 @@
       </div>
     </form>
 
+    <ul class="my-1">
+      <li>
+        <a class="dropdown-item" href="{{ route('logout') }}"
+          onclick="event.preventDefault();
+          document.getElementById('logout-form').submit();" class="nav-link">
+          {{ __('Logout') }}
+        </a>
+
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+           @csrf
+        </form>      
+      </li>
+    </ul>
+
     <!-- Right navbar links -->
 
   </nav>
@@ -74,7 +88,7 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="info">
-          <a href="#" class="d-block">Nama Kader</a>
+          <a href="#" class="d-block">{{ Auth::user()->name }}</a>
         </div>
       </div>
 
@@ -93,21 +107,27 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="/kader/daftar_ortu" class="nav-link active">
+                <a href="/daftar_ortu" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Daftar Menu</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/kader/periksa" class="nav-link">
+                <a href="/periksa" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Periksa Menu</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/kader/data" class="nav-link">
+                <a href="/data/periksa" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Data Periksa</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/data" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Data Orang Tua</p>
                 </a>
               </li>
             </ul>
@@ -155,5 +175,8 @@
 <script src="dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="dist/js/demo.js"></script>
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+       @yield('footer')
 </body>
 </html>
