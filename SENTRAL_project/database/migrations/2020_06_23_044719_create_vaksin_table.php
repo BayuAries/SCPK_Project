@@ -16,6 +16,7 @@ class CreateVaksinTable extends Migration
         Schema::create('vaksin', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
+            $table->integer('bulan');
             $table->timestamps();
         });
     }

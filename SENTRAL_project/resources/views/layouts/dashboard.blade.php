@@ -107,25 +107,25 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="/daftar_ortu" class="nav-link active">
+                <a href="/daftar_ortu" class="nav-link {{ Request::is('daftar_ortu*') ? 'active' : ''}}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Daftar Menu</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/periksa" class="nav-link">
+                <a href="/periksa" class="nav-link {{ Request::is('periksa*') ? 'active' : ''}}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Periksa Menu</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/data/periksa" class="nav-link">
+                <a href="/data/periksa" class="nav-link {{ Request::is('data/periksa*') ? 'active' : ''}}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Data Periksa</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/data" class="nav-link">
+                <a href="/data" class="nav-link {{ Request::is('data') ? 'active' : ''}}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Data Orang Tua</p>
                 </a>

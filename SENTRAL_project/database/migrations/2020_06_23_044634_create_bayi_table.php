@@ -18,6 +18,7 @@ class CreateBayiTable extends Migration
             $table->string('nama');
             $table->integer('id_ortu');
             $table->integer('usia');
+            $table->string('jenis_kelamin');
             //$table->foreign('id_ortu')->references('id')->on('ortu');
             $table->timestamps();
         });

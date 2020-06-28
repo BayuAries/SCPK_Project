@@ -15,9 +15,12 @@ class CreateGiziTable extends Migration
     {
         Schema::create('gizi', function (Blueprint $table) {
             $table->id();
+            $table->string('id_bayi');
             $table->integer('berat_badan');
             $table->integer('tinggi');
             $table->integer('lingkar_kepala');
+            $table->string('bb/u');
+            $table->string('tb/u');
             $table->string('status_gizi');
             $table->timestamps();
         });

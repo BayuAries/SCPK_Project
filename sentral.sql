@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 23, 2020 at 08:30 AM
+-- Generation Time: Jun 28, 2020 at 08:06 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -33,9 +33,17 @@ CREATE TABLE `bayi` (
   `nama` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `id_ortu` int(11) NOT NULL,
   `usia` int(11) NOT NULL,
+  `jenis_kelamin` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `bayi`
+--
+
+INSERT INTO `bayi` (`id`, `nama`, `id_ortu`, `usia`, `jenis_kelamin`, `created_at`, `updated_at`) VALUES
+(1, 'santuy', 3, 3, 'perempuan', '2020-06-27 19:19:07', '2020-06-27 19:19:07');
 
 -- --------------------------------------------------------
 
@@ -60,10 +68,13 @@ CREATE TABLE `failed_jobs` (
 
 CREATE TABLE `gizi` (
   `id` bigint(20) UNSIGNED NOT NULL,
+  `id_bayi` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `berat_badan` int(11) NOT NULL,
   `tinggi` int(11) NOT NULL,
   `lingkar_kepala` int(11) NOT NULL,
-  `status_gizi` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `bb/u` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `tb/u` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status_gizi` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -80,17 +91,6 @@ CREATE TABLE `kader` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `kader`
---
-
-INSERT INTO `kader` (`id`, `nama`, `created_at`, `updated_at`) VALUES
-(1, 'Bayu Areis WIcaksono', NULL, NULL),
-(2, 'Romzi Qutbi', NULL, NULL),
-(3, 'Bayu Herdianto', NULL, NULL),
-(4, 'Muhammad Fachry Azhar', NULL, NULL),
-(5, 'Purna Aji Wardhana', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -109,13 +109,14 @@ CREATE TABLE `migrations` (
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(66, '2014_10_12_000000_create_users_table', 1),
-(67, '2019_08_19_000000_create_failed_jobs_table', 1),
-(68, '2020_06_23_043111_create_kader_tabel', 1),
-(69, '2020_06_23_044610_create_ortu_table', 1),
-(70, '2020_06_23_044634_create_bayi_table', 1),
-(71, '2020_06_23_044659_create_gizi_table', 1),
-(72, '2020_06_23_044719_create_vaksin_table', 1);
+(82, '2014_10_12_000000_create_users_table', 1),
+(83, '2014_10_12_100000_create_password_resets_table', 1),
+(84, '2019_08_19_000000_create_failed_jobs_table', 1),
+(85, '2020_06_23_043111_create_kader_tabel', 1),
+(86, '2020_06_23_044610_create_ortu_table', 1),
+(87, '2020_06_23_044634_create_bayi_table', 1),
+(88, '2020_06_23_044659_create_gizi_table', 1),
+(89, '2020_06_23_044719_create_vaksin_table', 1);
 
 -- --------------------------------------------------------
 
@@ -137,8 +138,21 @@ CREATE TABLE `ortu` (
 --
 
 INSERT INTO `ortu` (`id`, `nama`, `no_tlp`, `alamat`, `created_at`, `updated_at`) VALUES
-(1, 'aji', '08127274838', 'jakal 2', NULL, NULL),
-(2, 'bambang', '08123643883', 'jakals 5', NULL, NULL);
+(1, 'bambang', '0812345678', 'gedongan', '2020-06-27 18:38:58', '2020-06-27 18:38:58'),
+(2, 'bambang', '0812345678', 'gedongan', '2020-06-27 18:39:09', '2020-06-27 18:39:09'),
+(3, 'baba', '4353453454', 'saasaa', '2020-06-27 18:40:50', '2020-06-27 18:40:50');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `password_resets`
+--
+
+CREATE TABLE `password_resets` (
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -157,6 +171,13 @@ CREATE TABLE `users` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'bayu', 'bayu@gmail.com', NULL, '$2y$10$D7duEHUeCbFCBkfkj8rsZOMXxXucb0tc/IkZ1JGqVC3pqNoyT6QH6', NULL, '2020-06-27 18:34:06', '2020-06-27 18:34:06');
+
 -- --------------------------------------------------------
 
 --
@@ -166,6 +187,7 @@ CREATE TABLE `users` (
 CREATE TABLE `vaksin` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `nama` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `bulan` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -211,6 +233,12 @@ ALTER TABLE `ortu`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `password_resets`
+--
+ALTER TABLE `password_resets`
+  ADD KEY `password_resets_email_index` (`email`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -231,7 +259,7 @@ ALTER TABLE `vaksin`
 -- AUTO_INCREMENT for table `bayi`
 --
 ALTER TABLE `bayi`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -249,25 +277,25 @@ ALTER TABLE `gizi`
 -- AUTO_INCREMENT for table `kader`
 --
 ALTER TABLE `kader`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
 
 --
 -- AUTO_INCREMENT for table `ortu`
 --
 ALTER TABLE `ortu`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `vaksin`

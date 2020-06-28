@@ -34,11 +34,18 @@
                           <label for="inputtinggal">Alamat Tinggal</label>
                           <input type="text" class="form-control" name="alamat" required="required">
                         </div>
-                        <button type="submit" class="btn btn-primary" onclick="swal">Daftar</button>
+                        <button type="submit" class="btn btn-primary" onclick="">Daftar</button>
                       </div>
                      </form>
                 </div>
               </div><!-- /.card-body -->
+              <div class="col-lg-12">
+                @if (session('status'))
+                    <div class="alert alert-success my-3">
+                        {{ session('status') }}
+                    </div>
+                @endif
+              </div>
             </div>
           </section> 
         </div> 
