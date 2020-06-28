@@ -48,7 +48,7 @@
                           <label for="inputjenis">Jenis_kelamin</label>
                             <select id="inputjenis" class="form-control" name="jenis_kelamin">
                               <option selected>pilih...</option>
-                              <option value="laki-laki">Laki - laki</option>
+                              <option value="laki-laki">Laki-laki</option>
                               <option value="perempuan">Perempuan</option>
                             </select>
                         </div>

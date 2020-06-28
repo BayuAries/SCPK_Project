@@ -119,7 +119,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/data/periksa" class="nav-link {{ Request::is('data/periksa*') ? 'active' : ''}}">
+                <a href="/gizi" class="nav-link {{ Request::is('gizi*') ? 'active' : ''}}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Data Periksa</p>
                 </a>
@@ -128,6 +128,12 @@
                 <a href="/data" class="nav-link {{ Request::is('data') ? 'active' : ''}}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Data Orang Tua</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/anak" class="nav-link {{ Request::is('anak*') ? 'active' : ''}}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Data Anak</p>
                 </a>
               </li>
             </ul>

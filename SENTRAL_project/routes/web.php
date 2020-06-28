@@ -27,6 +27,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/anak', 'KaderController@showAnak');
 Route::get('/daftar_ortu', 'OrtuController@daftarOrtu');
 Route::post('/daftar_ortu/store', 'OrtuController@storeOrtu');
 Route::get('/daftar_anak/{id}', 'OrtuController@daftarAnak');
@@ -35,7 +36,7 @@ Route::post('/daftar_anak/{id}/store', 'OrtuController@storeAnak');
 Route::get('/kader', 'KaderController@admin');
 Route::get('/periksa', 'KaderController@periksa');
 Route::get('/hasil', 'KaderController@hasil');
-Route::get('/data/periksa', 'KaderController@dataPeriksa');
+Route::get('/gizi', 'KaderController@dataPeriksa');
 Route::get('/admin', 'KaderController@admin');
 Route::get('/data', 'KaderController@data');
 

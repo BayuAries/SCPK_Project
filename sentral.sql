@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 28, 2020 at 08:06 AM
+-- Generation Time: Jun 28, 2020 at 11:55 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -44,6 +44,30 @@ CREATE TABLE `bayi` (
 
 INSERT INTO `bayi` (`id`, `nama`, `id_ortu`, `usia`, `jenis_kelamin`, `created_at`, `updated_at`) VALUES
 (1, 'santuy', 3, 3, 'perempuan', '2020-06-27 19:19:07', '2020-06-27 19:19:07');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `berat`
+--
+
+CREATE TABLE `berat` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `bulan` int(11) NOT NULL,
+  `minsd` double(8,2) NOT NULL,
+  `median` double(8,2) NOT NULL,
+  `plussd` double(8,2) NOT NULL,
+  `gender` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `berat`
+--
+
+INSERT INTO `berat` (`id`, `bulan`, `minsd`, `median`, `plussd`, `gender`, `created_at`, `updated_at`) VALUES
+(1, 0, 2.90, 3.30, 3.90, 'laki-laki', '2020-06-27 17:00:00', NULL);
 
 -- --------------------------------------------------------
 
@@ -116,7 +140,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (86, '2020_06_23_044610_create_ortu_table', 1),
 (87, '2020_06_23_044634_create_bayi_table', 1),
 (88, '2020_06_23_044659_create_gizi_table', 1),
-(89, '2020_06_23_044719_create_vaksin_table', 1);
+(89, '2020_06_23_044719_create_vaksin_table', 1),
+(90, '2020_06_28_093545_tinggi', 2),
+(91, '2020_06_28_093558_berat', 2);
 
 -- --------------------------------------------------------
 
@@ -153,6 +179,30 @@ CREATE TABLE `password_resets` (
   `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tinggi`
+--
+
+CREATE TABLE `tinggi` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `bulan` int(11) NOT NULL,
+  `minsd` double(8,2) NOT NULL,
+  `median` double(8,2) NOT NULL,
+  `plussd` double(8,2) NOT NULL,
+  `gender` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `tinggi`
+--
+
+INSERT INTO `tinggi` (`id`, `bulan`, `minsd`, `median`, `plussd`, `gender`, `created_at`, `updated_at`) VALUES
+(1, 0, 48.00, 49.90, 51.80, 'laki-laki', '2020-06-27 17:00:00', NULL);
 
 -- --------------------------------------------------------
 
@@ -203,6 +253,12 @@ ALTER TABLE `bayi`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `berat`
+--
+ALTER TABLE `berat`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
@@ -239,6 +295,12 @@ ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`);
 
 --
+-- Indexes for table `tinggi`
+--
+ALTER TABLE `tinggi`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -259,6 +321,12 @@ ALTER TABLE `vaksin`
 -- AUTO_INCREMENT for table `bayi`
 --
 ALTER TABLE `bayi`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `berat`
+--
+ALTER TABLE `berat`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
@@ -283,13 +351,19 @@ ALTER TABLE `kader`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=92;
 
 --
 -- AUTO_INCREMENT for table `ortu`
 --
 ALTER TABLE `ortu`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `tinggi`
+--
+ALTER TABLE `tinggi`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `users`
