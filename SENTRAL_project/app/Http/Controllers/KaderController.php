@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Kader;
 use App\Ortu;
 use App\Bayi;
+use App\Tinggi;
+use App\Berat;
 
 class KaderController extends Controller
 {
@@ -42,10 +44,13 @@ class KaderController extends Controller
 
         public function showAnak()
     {
-        $anak = Bayi::orderBy('created_at','asc')->get();
+        $tinggi = Tinggi::all();
+        $b = Berat::all();
+        dd($tinggi->all(),$b->all());
+        //$anak = Bayi::orderBy('created_at','asc')->get();
         //$ortu = Ortu::whereIn('id');
         //dd($anak->all());
-        return view('pasien.anak',['anak'=>$anak]);
+        //return view('pasien.anak',['anak'=>$anak]);
     }
 
 }
