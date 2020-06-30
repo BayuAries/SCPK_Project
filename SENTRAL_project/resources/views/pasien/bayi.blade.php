@@ -44,17 +44,23 @@
                           <tr>
                             <th scope="col">No</th>
                             <th scope="col">Nama</th>
+                            <th scope="col">Nama Orang Tua</th>
                             <th scope="col">Usia</th>            
                             <th scope="col">Jenis Kelamin</th>
+                            <th scope="col">Opsi</th>
                           </tr>
                         </thead>
                         <tbody>
-                          @foreach($anak as $data)
+                          @foreach($bayi as $data)
                           <tr>
                             <th scope="row">{{$loop->iteration}}</th>
                             <td>{{$data->nama}}</td>
+                            <td>{{$data->ortu->nama}}</td>
                             <td>{{$data->usia}}</td>
                             <td>{{$data->jenis_kelamin}}</td>
+                            <td>
+                              <a href="/periksa/{{$data->id}}" class="btn btn-info" role="button" aria-pressed="true">Periksa Anak</a>
+                            </td>
                           </tr>
                           @endforeach
                         </tbody>

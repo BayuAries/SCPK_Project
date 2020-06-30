@@ -36,7 +36,7 @@ class OrtuController extends Controller
         
         Bayi::create([
             'nama'=> $req->nama_anak,
-            'id_ortu'=>$id,
+            'ortu_id'=>$id,
             'usia'=>$req->usia,
             'jenis_kelamin'=>$req->jenis_kelamin,
         ]);

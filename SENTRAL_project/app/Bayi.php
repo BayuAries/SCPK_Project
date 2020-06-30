@@ -7,5 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 class Bayi extends Model
 {
     protected $table = 'bayi';
-    protected $fillable = ['nama', 'id_ortu', 'usia','jenis_kelamin'];
+    protected $fillable = ['nama', 'ortu_id', 'usia','jenis_kelamin'];
+
+    public function ortu()
+    {
+    	return $this->belongsTo('App\Ortu');
+    }
+
+    public function gizi()
+    {
+    	return $this->hasMany('App\Gizi');
+    }
 }

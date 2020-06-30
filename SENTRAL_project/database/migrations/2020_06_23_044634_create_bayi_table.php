@@ -16,7 +16,7 @@ class CreateBayiTable extends Migration
         Schema::create('bayi', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
-            $table->integer('id_ortu');
+            $table->integer('ortu_id');
             $table->integer('usia');
             $table->string('jenis_kelamin');
             //$table->foreign('id_ortu')->references('id')->on('ortu');

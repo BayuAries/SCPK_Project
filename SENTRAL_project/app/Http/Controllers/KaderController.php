@@ -19,9 +19,11 @@ class KaderController extends Controller
     	return view('kader.index');
     }
 
-     public function periksa()
+     public function periksa($id)
     {
-    	return view('kader.periksa');
+        $bayi = Bayi::find($id);
+        // dd($bayi->all());
+    	return view('kader.periksa',['bayi'=>$bayi]);
     }
     public function hasil()
     {
@@ -44,13 +46,13 @@ class KaderController extends Controller
 
         public function showAnak()
     {
-        $tinggi = Tinggi::all();
-        $b = Berat::all();
-        dd($tinggi->all(),$b->all());
-        //$anak = Bayi::orderBy('created_at','asc')->get();
-        //$ortu = Ortu::whereIn('id');
-        //dd($anak->all());
-        //return view('pasien.anak',['anak'=>$anak]);
+        // $tinggi = Tinggi::all();
+        // $b = Berat::all();
+        // dd($tinggi->all(),$b->all());
+        $bayi = Bayi::orderBy('created_at','asc')->get();
+        $ortu = Ortu::where('id');
+        //dd($bayi->all());
+        return view('pasien.bayi',['bayi'=>$bayi]);
     }
 
 }
