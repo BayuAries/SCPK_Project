@@ -9,6 +9,7 @@ use App\Ortu;
 use App\Bayi;
 use App\Tinggi;
 use App\Berat;
+use App\Gizi;
 
 class KaderController extends Controller
 {
@@ -25,9 +26,12 @@ class KaderController extends Controller
         // dd($bayi->all());
     	return view('kader.periksa',['bayi'=>$bayi]);
     }
-    public function hasil()
+    public function hasil($id)
     {
-    	return view('kader.hasil');
+        $gizi = Gizi::find($id);
+        $bayi = Bayi::where('id', $gizi->bayi_id)->get();
+         // dd($gizi, $bayi);
+    	return view('kader.hasil',['gizi'=>$gizi, 'bayi'=>$bayi])->with('status','Data Berhasil ditambah');
     }
     public function data()
     {
@@ -41,7 +45,9 @@ class KaderController extends Controller
     }
     public function dataPeriksa()
     {
-        return view('kader.data_periksa');
+        $gizi = Gizi::all();
+
+        return view('kader.data_periksa',['gizi' => $gizi]);
     }
 
         public function showAnak()

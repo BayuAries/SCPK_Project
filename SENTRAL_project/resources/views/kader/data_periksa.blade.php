@@ -44,29 +44,19 @@
                           <tr>
                             <th scope="col">No</th>
                             <th scope="col">Nama</th>
-                            <th scope="col">ID</th>            
-                            <th scope="col">Hasil Pengukuran Gizi</th>
+                            <th scope="col">Hasil Pengukuran Tinggi</th>            
+                            <th scope="col">Hasil Gizi Berat</th>
                           </tr>
                         </thead>
                         <tbody>
+                          @foreach($gizi as $data)
                           <tr>
-                            <th scope="row">1</th>
-                            <td>Dadang</td>
-                            <td>28</td>
-                            <td>Normal</td>
+                            <th scope="row">{{$loop->iteration}}</th>
+                            <td>{{$data->bayi->nama}}</td>
+                            <td>{{$data->tb_u}}</td>
+                            <td>{{$data->bb_u}}</td>
                           </tr>
-                          <tr>
-                            <th scope="row">2</th>
-                            <td>Jainab</td>
-                            <td>20</td>
-                            <td>Kurus</td>
-                          </tr>
-                          <tr>
-                            <th scope="row">3</th>
-                            <td>Aji</td>
-                            <td>13</td>
-                            <td>Obesitas</td>
-                          </tr>
+                          @endforeach
                         </tbody>
                       </table>
                     </div> 
