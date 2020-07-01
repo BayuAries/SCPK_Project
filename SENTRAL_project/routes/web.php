@@ -32,11 +32,11 @@ Route::get('/daftar_ortu', 'OrtuController@daftarOrtu');
 Route::post('/daftar_ortu/store', 'OrtuController@storeOrtu');
 Route::get('/daftar_anak/{id}', 'OrtuController@daftarAnak');
 Route::post('/daftar_anak/{id}/store', 'OrtuController@storeAnak');
-Route::post('/cek/{id}', 'OrtuController@storeAnak');
+Route::post('/cek/{id}', 'OrtuController@cekAnak');
 
 Route::get('/kader', 'KaderController@admin');
 Route::get('/periksa/{id}', 'KaderController@periksa');
-Route::get('/hasil', 'KaderController@hasil');
+Route::get('/hasil/{id}', 'KaderController@hasil');
 Route::get('/gizi', 'KaderController@dataPeriksa');
 Route::get('/admin', 'KaderController@admin');
 Route::get('/data', 'KaderController@data');

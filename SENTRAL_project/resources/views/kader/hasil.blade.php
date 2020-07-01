@@ -1,4 +1,4 @@
-@extends('layouts/master')
+@extends('layouts/dashboard')
 
 @section('title','Hasil')
 
@@ -27,31 +27,44 @@
           <!-- Left col -->
           <section class="col-lg-12 connectedSortable">
             <!-- Custom tabs (Charts with tabs)-->
-            <div class="card">
+
+            <div class="card ">
               <div class="card-header">
+                @foreach($bayi as $anak)
                 <h3 class="card-title">
                   <i class="fas fa-chart-pie mr-1"></i>
-                  Sales
+                   Nama Bayi : {{$anak->nama}}
                 </h3>
+                @endforeach
               </div><!-- /.card-header -->
               <div class="card-body">
                 <div class="tab-content p-0">
                   <!-- table -->
-				  	<div class="container">
-					    <form>
-							<div class="card w-75">
-							  <div class="card-body">
-							    <h5 class="card-title">Hasil Perhitungan Gizi</h5>
-							    <p class="card-text">Normal</p>
-							  </div>
-							</div>
-						  <button type="submit" class="btn btn-primary">Back</button>
-						</form>
-					</div>
+        				  <div class="container">
+        							<div class="card w-75">
+        							  <div class="card-body col-lg-6">
+        							    <h5 class="card-title">Hasil Perhitungan Gizi Berdasarkan Berat Badan Per Umur</h5>
+        							    <p class="card-text">{{$gizi->bb_u}}</p>
+        							  </div>
+                        <div class="card-body col-lg-6">
+                          <h5 class="card-title">Hasil Perhitungan Gizi Berdasarkan Tinggi Badan Per Umur</h5>
+                          <p class="card-text">{{$gizi->tb_u}}</p>
+                        </div>
+          						</div>
+        						  <a href="/gizi" class="btn btn-info" role="button" aria-pressed="true">Kembali</a>
+        					</div>
+                  <div class="col-lg-12">
+                    @if (session('status'))
+                        <div class="alert alert-success my-3">
+                            {{ session('status') }}
+                        </div>
+                    @endif
+                  </div>
 
                 </div>
               </div><!-- /.card-body -->
             </div>
+
           </section> 
      </div>             	
   </div>

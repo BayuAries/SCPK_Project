@@ -40,27 +40,46 @@
 				  	<div class="container">
 					    <form action="/cek/{{$bayi->id}}" method="post">
                 {{ csrf_field() }}
-					      <div class="form-group">
+					    <div class="form-group col-auto my-1 mt-2">
                 <label for="inputNama">Nama</label>
                 <input type="text" class="form-control" value="{{ $bayi->nama }}" id="inputNama" aria-describedby="">
               </div>
-						  <div class="form-group">
-						    <label for="inputUsia">Usia</label>
-						    <input type="text" class="form-control" id="inputUsia" aria-describedby="emailHelp" placeholder="Masukan Usia Terbaru (Bulan)">
-						  </div>
-						  <div class="form-group">
+
+              <div class="col-auto my-1 mt-2">
+                  <label for="inputUsia">Usia</label>
+                  <select id="inputUsia" class="form-control" name="usia">
+                  <option selected>bulan...</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                  </select>
+              </div>
+
+						  <div class="form-group col-auto my-1 mt-2">
 						    <label for="inputBerat">Berat Badan</label>
 						    <input type="text" class="form-control" id="" name="berat" placeholder="Masukan Berat Badan (Kg)">
 						  </div>
-						  <div class="form-group">
+						  <div class="form-group col-auto my-1 mt-2">
 						    <label for="inputTinggi">Tinggi Badan</label>
 						    <input type="text" class="form-control" id="" name="tinggi" placeholder="Masukan Tinggi Badan (cm)">
 						  </div>
-						  <div class="form-group">
+						  <div class="form-group col-auto my-1 mt-2">
 						    <label for="inputLingkar">Lingkar Kepala</label>
 						    <input type="text" class="form-control" id="" name="lingkar" placeholder="Masukan Lingkar Kepala (cm)">
 						  </div>
-						  <button type="submit" class="btn btn-primary">Cek</button>
+              <div class=" form-group col-auto my-1 mt-2">
+              <button type="submit" class="btn btn-primary">Cek</button>                
+              </div>
+
 						</form>
 					</div>
                 </div>

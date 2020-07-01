@@ -112,12 +112,12 @@
                   <p>Daftar Menu</p>
                 </a>
               </li>
-              <li class="nav-item">
+<!--               <li class="nav-item">
                 <a href="/periksa" class="nav-link {{ Request::is('periksa*') ? 'active' : ''}}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Periksa Menu</p>
                 </a>
-              </li>
+              </li> -->
               <li class="nav-item">
                 <a href="/gizi" class="nav-link {{ Request::is('gizi*') ? 'active' : ''}}">
                   <i class="far fa-circle nav-icon"></i>
