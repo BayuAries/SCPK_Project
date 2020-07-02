@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 30, 2020 at 12:46 PM
+-- Generation Time: Jul 02, 2020 at 02:25 PM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -43,7 +43,9 @@ CREATE TABLE `bayi` (
 --
 
 INSERT INTO `bayi` (`id`, `nama`, `ortu_id`, `usia`, `jenis_kelamin`, `created_at`, `updated_at`) VALUES
-(1, 'santuy', 3, 3, 'perempuan', '2020-06-27 19:19:07', '2020-06-27 19:19:07');
+(1, 'santuy', 3, 4, 'perempuan', '2020-06-27 19:19:07', '2020-07-01 02:20:07'),
+(2, 'aji', 4, 2, 'laki-laki', '2020-07-01 19:26:57', '2020-07-01 19:26:57'),
+(3, 'Ridho', 5, 1, 'laki-laki', '2020-07-01 20:25:16', '2020-07-01 20:25:16');
 
 -- --------------------------------------------------------
 
@@ -120,7 +122,7 @@ CREATE TABLE `gizi` (
   `bayi_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `berat_badan` double(8,2) NOT NULL,
   `tinggi` double(8,2) NOT NULL,
-  `lingkar_kepala` double(8,2) NOT NULL,
+  `lingkar_kepala` double(8,2) DEFAULT NULL,
   `bb_u` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `hasil1` double(8,2) DEFAULT NULL,
   `tb_u` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -129,6 +131,15 @@ CREATE TABLE `gizi` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `gizi`
+--
+
+INSERT INTO `gizi` (`id`, `bayi_id`, `berat_badan`, `tinggi`, `lingkar_kepala`, `bb_u`, `hasil1`, `tb_u`, `hasil2`, `status_gizi`, `created_at`, `updated_at`) VALUES
+(9, '1', 6.40, 62.10, 20.00, 'Baik', 0.00, 'Normal', 0.00, NULL, '2020-07-01 03:08:03', '2020-07-01 03:08:03'),
+(10, '2', 4.50, 55.70, 30.00, 'Baik', -1.57, 'Normal', -1.35, NULL, '2020-07-01 19:27:54', '2020-07-01 19:27:54'),
+(11, '3', 2.90, 49.00, NULL, 'Kurang', -2.67, 'Pendek', -3.00, NULL, '2020-07-01 20:25:45', '2020-07-01 20:25:45');
 
 -- --------------------------------------------------------
 
@@ -192,8 +203,9 @@ CREATE TABLE `ortu` (
 
 INSERT INTO `ortu` (`id`, `nama`, `no_tlp`, `alamat`, `created_at`, `updated_at`) VALUES
 (1, 'bambang', '0812345678', 'gedongan', '2020-06-27 18:38:58', '2020-06-27 18:38:58'),
-(2, 'bambang', '0812345678', 'gedongan', '2020-06-27 18:39:09', '2020-06-27 18:39:09'),
-(3, 'baba', '4353453454', 'saasaa', '2020-06-27 18:40:50', '2020-06-27 18:40:50');
+(3, 'baba', '4353453454', 'saasaa', '2020-06-27 18:40:50', '2020-06-27 18:40:50'),
+(4, 'sinta', '0812536374841', 'jalan  baru', '2020-07-01 19:24:41', '2020-07-01 19:24:41'),
+(5, 'sasa', '081265841902', 'jalan damai 2', '2020-07-01 20:24:57', '2020-07-01 20:24:57');
 
 -- --------------------------------------------------------
 
@@ -373,7 +385,7 @@ ALTER TABLE `vaksin`
 -- AUTO_INCREMENT for table `bayi`
 --
 ALTER TABLE `bayi`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `berat`
@@ -391,7 +403,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `gizi`
 --
 ALTER TABLE `gizi`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `kader`
@@ -409,7 +421,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `ortu`
 --
 ALTER TABLE `ortu`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tinggi`
