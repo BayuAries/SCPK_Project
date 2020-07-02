@@ -5,6 +5,9 @@
 @section('container')
     
     <div class="content-wrapper">
+
+<br>
+
         <div class="row">
           <!-- Left col -->
           <section class="col-lg-12 connectedSortable">

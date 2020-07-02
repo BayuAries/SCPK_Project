@@ -132,7 +132,7 @@ class OrtuController extends Controller
         $gizi->bayi_id = $bayi->id;
         $gizi->berat_badan = $req->berat;
         $gizi->tinggi = $req->tinggi;
-        $gizi->lingkar_kepala = $req->lingkar;
+        // $gizi->lingkar_kepala = $req->lingkar;
 
         // dd($gizi->hasil1, $gizi->hasil2, $gizi->bb_u, $gizi->tb_u, $gizi->bayi_id, $gizi->berat_badan,  $gizi->tinggi);
 

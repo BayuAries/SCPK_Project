@@ -72,10 +72,10 @@
 						    <label for="inputTinggi">Tinggi Badan</label>
 						    <input type="text" class="form-control" id="" name="tinggi" placeholder="Masukan Tinggi Badan (cm)">
 						  </div>
-						  <div class="form-group col-auto my-1 mt-2">
+<!-- 						  <div class="form-group col-auto my-1 mt-2">
 						    <label for="inputLingkar">Lingkar Kepala</label>
 						    <input type="text" class="form-control" id="" name="lingkar" placeholder="Masukan Lingkar Kepala (cm)">
-						  </div>
+						  </div> -->
               <div class=" form-group col-auto my-1 mt-2">
               <button type="submit" class="btn btn-primary">Cek</button>                
               </div>
