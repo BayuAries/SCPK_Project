@@ -30,6 +30,7 @@
                             <th scope="col">Nama</th>
                             <th scope="col">No.Telepon</th>            
                             <th scope="col">Alamat</th>
+                            <th scope="col">Opsi</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -39,6 +40,9 @@
                             <td>{{$data->nama}}</td>
                             <td>{{$data->no_tlp}}</td>
                             <td>{{$data->alamat}}</td>
+                            <td>
+                              <a href="/daftar_anak/{{$data->id}}" class="btn btn-info" role="button" aria-pressed="true">Daftar Anak</a>
+                            </td>
                           </tr>
                           @endforeach
                         </tbody>

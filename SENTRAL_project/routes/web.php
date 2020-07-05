@@ -40,6 +40,9 @@ Route::get('/hasil/{id}', 'KaderController@hasil');
 Route::get('/gizi', 'KaderController@dataPeriksa');
 Route::get('/admin', 'KaderController@admin');
 Route::get('/data', 'KaderController@data');
-
-
+Route::get('/vaksin', 'KaderController@showVaksin');
+Route::post('/vaksin/tambah', 'KaderController@tambahVaksin');
+Route::get('/vaksin/edit/{id}', 'KaderController@editVaksin');
+Route::post('/vaksin/{id}/update', 'KaderController@updateVaksin');
+Route::get('/vaksin/{id}/delet', 'KaderController@deletVaksin');
 

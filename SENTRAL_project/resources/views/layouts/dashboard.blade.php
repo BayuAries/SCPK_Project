@@ -109,31 +109,31 @@
               <li class="nav-item">
                 <a href="/daftar_ortu" class="nav-link {{ Request::is('daftar_ortu*') ? 'active' : ''}}">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Daftar Menu</p>
+                  <p>Pendaftaran</p>
                 </a>
               </li>
-<!--               <li class="nav-item">
-                <a href="/periksa" class="nav-link {{ Request::is('periksa*') ? 'active' : ''}}">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Periksa Menu</p>
-                </a>
-              </li> -->
               <li class="nav-item">
                 <a href="/gizi" class="nav-link {{ Request::is('gizi*') ? 'active' : ''}}">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Data Periksa</p>
+                  <p>Data Periksa Bayi</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="/data" class="nav-link {{ Request::is('data') ? 'active' : ''}}">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Data Orang Tua</p>
+                  <p>Data Orang Tua Bayi</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="/anak" class="nav-link {{ Request::is('anak*') ? 'active' : ''}}">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Data Anak</p>
+                  <p>Data Bayi</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/vaksin" class="nav-link {{ Request::is('vaksin*') ? 'active' : ''}}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Data Vaksin</p>
                 </a>
               </li>
             </ul>

@@ -10,6 +10,7 @@ use App\Bayi;
 use App\Tinggi;
 use App\Berat;
 use App\Gizi;
+use App\Vaksin;
 
 class KaderController extends Controller
 {
@@ -59,6 +60,53 @@ class KaderController extends Controller
         $ortu = Ortu::where('id');
         //dd($bayi->all());
         return view('pasien.bayi',['bayi'=>$bayi]);
+    }
+
+    public function showVaksin()
+    {
+        $vaksin = Vaksin::orderBy('bulan', 'ASC')->get();
+        // dd($vaksin);
+
+        return view('kader.vaksin',['vaksin'=>$vaksin]);
+    }
+
+    public function tambahVaksin(Request $req)
+    {
+        $vaksin = new Vaksin();
+
+        $vaksin->nama = $req->nama;
+        $vaksin->bulan = $req->usia;
+
+        $vaksin->save();
+        // dd($vaksin);
+        return redirect()->back()->with('status', 'Data Berhasil ditambahkan');
+    }
+
+    public function editVaksin($id)
+    {
+        $vaksin = Vaksin::find($id);
+        // dd($vaksin);
+
+        return view('kader.edit_vaksin',['vaksin'=>$vaksin]);
+    }
+
+    public function updateVaksin($id ,Request $req)
+    {
+        $vaksin = Vaksin::find($id);
+
+        $vaksin->nama = $req->nama;
+        $vaksin->bulan = $req->usia;
+        // dd($vaksin);
+        $vaksin->save();
+        // dd($vaksin);
+        return redirect('/vaksin')->with('status', 'Data Berhasil ditambahkan');
+    }
+
+    public function deletVaksin($id)
+    {
+         $vaksin = Vaksin::find($id);
+         $vaksin->delete($vaksin);
+      return redirect('/vaksin');
     }
 
 }
