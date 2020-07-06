@@ -3,5 +3,18 @@
 @section('title','Posyandu')
 
 @section('container')
-//isi halam utama
+<div class="container-fluid">
+    <section class="jumbotron jumbotron-fluid text-center " style="">
+        <div class="container">
+          <h1>Sistem Pengukur Gizi Bayi</h1>
+          <div class="row justify-content-center">
+          	<img src="/img/Coronavirus_Hero.jpg" style="" class="img-fluid" alt="Responsive image">
+          </div>
+          <div class="row justify-content-center">
+          	<a href="/login" class="btn btn-secondary btn-lg my-2 mx-2">Login</a>
+          	<a href="/register" class="btn btn-secondary btn-lg my-2 mx-2">Daftar</a>
+          </div>
+        </div>
+    </section>
+</div>
 @endsection

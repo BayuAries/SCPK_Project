@@ -63,9 +63,7 @@
                         <label class="form-check-label" for="remember">
                             {{ __('Remember Me') }}
                         </label>
-                  <label for="remember">
-                    Remember Me
-                  </label>
+                  
                 </div>
               </div>
               <!-- /.col -->
