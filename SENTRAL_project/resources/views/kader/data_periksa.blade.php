@@ -1,6 +1,6 @@
 @extends('layouts/dashboard')
 
-@section('title','Data Periksa')
+@section('title','Data Periksa Bayi')
 
 @section('container')
 
@@ -30,24 +30,30 @@
                             <th scope="col">No</th>
                             <th scope="col">Nama</th>
                             <th scope="col">Hasil Pengukuran Tinggi</th>            
-                            <th scope="col">Hasil Gizi Berat</th>
+                            <th scope="col">Hasil Pengukuran Gizi Berat</th>
                             <th scope="col">Tanggal Perikas</th>
+                            <th scope="col">Opsi</th>
                           </tr>
                         </thead>
                         <tbody>
                           @foreach($gizi as $data)
                           <tr>
                             <th scope="row">{{$loop->iteration}}</th>
-                            <td>{{$data->bayi->nama}}</td>
-                            <td>{{$data->tb_u}}</td>
-                            <td>{{$data->bb_u}}</td>
-                            <td>{{$data->created_at->todatestring()}}</td>
+                            <td scope="row">{{$data->bayi->nama}}</td>
+                            <td scope="row">{{$data->tb_u}}</td>
+                            <td scope="row">{{$data->bb_u}}</td>
+                            <td scope="row">{{$data->created_at->todatestring()}}</td>
+                            <td>
+                              <a href="/gizi/detail/{{$data->id}}" class="btn btn-info" role="button" aria-pressed="true">Detail</a>
+                            </td>
                           </tr>
                           @endforeach
                         </tbody>
                       </table>
                     </div> 
-
+                    <div class="col-md-4 mt-3">
+                      {{ $gizi -> links() }}
+                    </div>
                 </div>
               </div><!-- /.card-body -->
             </div>

@@ -31,12 +31,22 @@ class KaderController extends Controller
     {
         $gizi = Gizi::find($id);
         $bayi = Bayi::where('id', $gizi->bayi_id)->get();
-         // dd($gizi, $bayi);
-    	return view('kader.hasil',['gizi'=>$gizi, 'bayi'=>$bayi])->with('status','Data Berhasil ditambah');
+        foreach ($bayi as $key) {
+            $vaksin = Vaksin::where('bulan', $key->usia)->get();
+            if($vaksin->isEmpty()){
+                $vaksin = [];
+            }elseif($vaksin->isNotEmpty()){
+                $vaksin;
+            }
+                
+        }
+        
+         // dd($gizi, $bayi->usia);
+    	return view('kader.hasil',['gizi'=>$gizi, 'bayi'=>$bayi, 'vaksin'=>$vaksin])->with('status','Data Berhasil ditambah');
     }
     public function data()
     {
-        $ortu = Ortu::all();
+        $ortu = Ortu::paginate(10);
         //dd($ortu);
         return view('kader.data',['ortu'=>$ortu]);
     }
@@ -46,9 +56,22 @@ class KaderController extends Controller
     }
     public function dataPeriksa()
     {
-        $gizi = Gizi::all();
+        $gizi = Gizi::orderBy('created_at', 'desc')->paginate(10);
 
         return view('kader.data_periksa',['gizi' => $gizi]);
+    }
+
+    public function detailGizi($id)
+    {
+        $gizi = Gizi::find($id);
+        // dd($gizi->usia);
+        $vaksin = Vaksin::where('bulan', $gizi->usia)->get();
+            if($vaksin->isEmpty()){
+                $vaksin = [];
+            }elseif($vaksin->isNotEmpty()){
+                $vaksin;
+            }
+        return view('kader.detail_gizi',['gizi' => $gizi, 'vaksin'=>$vaksin]);
     }
 
         public function showAnak()
@@ -56,15 +79,15 @@ class KaderController extends Controller
         // $tinggi = Tinggi::all();
         // $b = Berat::all();
         // dd($tinggi->all(),$b->all());
-        $bayi = Bayi::orderBy('created_at','asc')->get();
-        $ortu = Ortu::where('id');
+        $bayi = Bayi::orderBy('created_at','asc')->paginate(10);
+        // $ortu = Ortu::where('id');
         //dd($bayi->all());
         return view('pasien.bayi',['bayi'=>$bayi]);
     }
 
     public function showVaksin()
     {
-        $vaksin = Vaksin::orderBy('bulan', 'ASC')->get();
+        $vaksin = Vaksin::orderBy('bulan', 'ASC')->paginate(10);
         // dd($vaksin);
 
         return view('kader.vaksin',['vaksin'=>$vaksin]);

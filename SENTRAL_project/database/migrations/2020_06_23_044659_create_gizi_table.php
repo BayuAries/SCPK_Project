@@ -23,7 +23,7 @@ class CreateGiziTable extends Migration
             $table->float('hasil1')->nullable();
             $table->string('tb_u')->nullable();
             $table->float('hasil2')->nullable();
-            $table->string('status_gizi')->nullable();
+            $table->int('usia')->nullable();
             $table->timestamps();
         });
     }

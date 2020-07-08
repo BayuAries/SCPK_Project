@@ -1,6 +1,6 @@
 @extends('layouts/dashboard')
 
-@section('title','Data')
+@section('title','Data Bayi')
 
 @section('container')
 
@@ -30,7 +30,8 @@
                             <th scope="col">No</th>
                             <th scope="col">Nama</th>
                             <th scope="col">Nama Orang Tua</th>
-                            <th scope="col">Usia</th>            
+                            <th scope="col">Tanggal Lahir</th>
+                            <th scope="col">Usia (Bulan)</th>            
                             <th scope="col">Jenis Kelamin</th>
                             <th scope="col">Opsi</th>
                           </tr>
@@ -41,6 +42,7 @@
                             <th scope="row">{{$loop->iteration}}</th>
                             <td>{{$data->nama}}</td>
                             <td>{{$data->ortu->nama}}</td>
+                            <td>{{$data->tanggal_lahir}}</td>
                             <td>{{$data->usia}}</td>
                             <td>{{$data->jenis_kelamin}}</td>
                             <td>
@@ -51,7 +53,9 @@
                         </tbody>
                       </table>
                     </div> 
-
+                    <div class="col-md-4 mt-3">
+                      {{ $bayi -> links() }}
+                    </div>
                 </div>
               </div><!-- /.card-body -->
             </div>

@@ -45,4 +45,5 @@ Route::post('/vaksin/tambah', 'KaderController@tambahVaksin');
 Route::get('/vaksin/edit/{id}', 'KaderController@editVaksin');
 Route::post('/vaksin/{id}/update', 'KaderController@updateVaksin');
 Route::get('/vaksin/{id}/delet', 'KaderController@deletVaksin');
+Route::get('/gizi/detail/{id}', 'KaderController@detailGizi');
 

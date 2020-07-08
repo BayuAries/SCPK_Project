@@ -1,6 +1,6 @@
 @extends('layouts/dashboard')
 
-@section('title','Hasil Cek')
+@section('title','Detail Gizi')
 
 @section('container')
 
@@ -15,22 +15,36 @@
 
             <div class="card ">
               <div class="card-header">
-                @foreach($bayi as $anak)
                 <h3 class="card-title">
                   <i class="fas fa-chart-pie mr-1"></i>
-                   Nama Bayi : {{$anak->nama}}
+                   Nama Bayi : {{$gizi->bayi->nama}}
                 </h3>
-                @endforeach
               </div><!-- /.card-header -->
               <div class="card-body">
                 <div class="tab-content p-0">
                   <!-- table -->
         				  <div class="container">
-        							<div class="card w-75">
+        							<div class="card w-100">
+                        <div class="card-body col-auto">
+                          <h5 class="card-title">Nama Orang Tua</h5>
+                          <p class="card-text">{{$gizi->bayi->ortu->nama}}</p>
+                        </div>
+                        <div class="card-body col-auto">
+                          <h5 class="card-title">Usia Periksa </h5>
+                          <p class="card-text">{{$gizi->usia}} bulan</p>
+                        </div>
+                        <div class="card-body col-auto">
+                          <h5 class="card-title">Berat Badan</h5>
+                          <p class="card-text">{{$gizi->berat_badan}}</p>
+                        </div>
         							  <div class="card-body col-auto">
         							    <h5 class="card-title">Hasil Perhitungan Gizi Berdasarkan Berat Badan Per Umur</h5>
         							    <p class="card-text">{{$gizi->bb_u}}</p>
         							  </div>
+                        <div class="card-body col-auto">
+                          <h5 class="card-title">Tinggi Badan</h5>
+                          <p class="card-text">{{$gizi->tinggi}}</p>
+                        </div>
                         <div class="card-body col-auto">
                           <h5 class="card-title">Hasil Perhitungan Gizi Berdasarkan Tinggi Badan Per Umur</h5>
                           <p class="card-text">{{$gizi->tb_u}}</p>

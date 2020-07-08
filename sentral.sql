@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 02, 2020 at 02:25 PM
+-- Generation Time: Jul 08, 2020 at 06:55 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -32,7 +32,8 @@ CREATE TABLE `bayi` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `nama` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `ortu_id` int(11) NOT NULL,
-  `usia` int(11) NOT NULL,
+  `usia` int(11) DEFAULT NULL,
+  `tanggal_lahir` date DEFAULT NULL,
   `jenis_kelamin` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -42,10 +43,13 @@ CREATE TABLE `bayi` (
 -- Dumping data for table `bayi`
 --
 
-INSERT INTO `bayi` (`id`, `nama`, `ortu_id`, `usia`, `jenis_kelamin`, `created_at`, `updated_at`) VALUES
-(1, 'santuy', 3, 4, 'perempuan', '2020-06-27 19:19:07', '2020-07-01 02:20:07'),
-(2, 'aji', 4, 2, 'laki-laki', '2020-07-01 19:26:57', '2020-07-01 19:26:57'),
-(3, 'Ridho', 5, 1, 'laki-laki', '2020-07-01 20:25:16', '2020-07-01 20:25:16');
+INSERT INTO `bayi` (`id`, `nama`, `ortu_id`, `usia`, `tanggal_lahir`, `jenis_kelamin`, `created_at`, `updated_at`) VALUES
+(1, 'santuy', 3, 4, '2020-01-14', 'perempuan', '2020-06-27 19:19:07', '2020-07-01 02:20:07'),
+(2, 'aji', 4, 1, '2020-06-08', 'laki-laki', '2020-07-01 19:26:57', '2020-07-07 20:27:00'),
+(3, 'Ridho', 5, 0, '2020-07-07', 'laki-laki', '2020-07-01 20:25:16', '2020-07-07 20:35:46'),
+(4, 'bam', 6, 3, '2020-04-08', 'laki-laki', '2020-07-02 06:40:27', '2020-07-07 20:39:20'),
+(5, 'Bimo', 1, 5, '2020-05-23', 'laki-laki', '2020-07-05 02:35:50', '2020-07-05 02:35:50'),
+(9, 'bay', 5, 1, '2020-05-13', 'laki-laki', '2020-07-07 19:49:33', '2020-07-07 19:49:33');
 
 -- --------------------------------------------------------
 
@@ -122,12 +126,11 @@ CREATE TABLE `gizi` (
   `bayi_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `berat_badan` double(8,2) NOT NULL,
   `tinggi` double(8,2) NOT NULL,
-  `lingkar_kepala` double(8,2) DEFAULT NULL,
   `bb_u` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `hasil1` double(8,2) DEFAULT NULL,
   `tb_u` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `hasil2` double(8,2) DEFAULT NULL,
-  `status_gizi` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `usia` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -136,10 +139,20 @@ CREATE TABLE `gizi` (
 -- Dumping data for table `gizi`
 --
 
-INSERT INTO `gizi` (`id`, `bayi_id`, `berat_badan`, `tinggi`, `lingkar_kepala`, `bb_u`, `hasil1`, `tb_u`, `hasil2`, `status_gizi`, `created_at`, `updated_at`) VALUES
-(9, '1', 6.40, 62.10, 20.00, 'Baik', 0.00, 'Normal', 0.00, NULL, '2020-07-01 03:08:03', '2020-07-01 03:08:03'),
-(10, '2', 4.50, 55.70, 30.00, 'Baik', -1.57, 'Normal', -1.35, NULL, '2020-07-01 19:27:54', '2020-07-01 19:27:54'),
-(11, '3', 2.90, 49.00, NULL, 'Kurang', -2.67, 'Pendek', -3.00, NULL, '2020-07-01 20:25:45', '2020-07-01 20:25:45');
+INSERT INTO `gizi` (`id`, `bayi_id`, `berat_badan`, `tinggi`, `bb_u`, `hasil1`, `tb_u`, `hasil2`, `usia`, `created_at`, `updated_at`) VALUES
+(13, '9', 7.10, 50.00, 'Lebih', 4.33, 'Pendek', -2.47, 1, '2020-07-07 19:56:20', '2020-07-07 19:56:20'),
+(14, '9', 7.10, 62.10, 'Lebih', 4.33, 'Tinggi', 3.70, 1, '2020-07-07 20:17:51', '2020-07-07 20:17:51'),
+(15, '9', 7.10, 62.10, 'Lebih', 4.33, 'Tinggi', 3.70, 1, '2020-07-07 20:18:12', '2020-07-07 20:18:12'),
+(16, '2', 7.10, 62.10, 'Lebih', 6.33, 'Tinggi', 6.42, 0, '2020-07-07 20:18:34', '2020-07-07 20:18:34'),
+(18, '2', 7.10, 62.10, 'Lebih', 6.33, 'Tinggi', 6.42, 0, '2020-07-07 20:20:05', '2020-07-07 20:20:05'),
+(19, '2', 7.10, 62.10, 'Lebih', 6.33, 'Tinggi', 6.42, 0, '2020-07-07 20:20:18', '2020-07-07 20:20:18'),
+(20, '2', 7.10, 62.10, 'Lebih', 6.33, 'Tinggi', 6.42, 0, '2020-07-07 20:22:57', '2020-07-07 20:22:57'),
+(21, '2', 7.10, 62.10, 'Lebih', 6.33, 'Tinggi', 6.42, 0, '2020-07-07 20:26:37', '2020-07-07 20:26:37'),
+(24, '3', 7.10, 61.00, 'Lebih', 6.33, 'Tinggi', 5.84, 0, '2020-07-07 20:35:46', '2020-07-07 20:35:46'),
+(25, '2', 6.00, 61.00, 'Lebih', 2.50, 'Tinggi', 3.15, 1, '2020-07-07 20:37:42', '2020-07-07 20:37:42'),
+(26, '4', 7.10, 50.00, 'Lebih', 6.33, 'Normal', 0.05, 0, '2020-07-07 20:38:18', '2020-07-07 20:38:18'),
+(28, '2', 7.10, 61.00, 'Lebih', 4.33, 'Tinggi', 3.15, 1, '2020-07-07 20:40:18', '2020-07-07 20:40:18'),
+(29, '4', 6.00, 50.00, 'Baik', -0.57, 'Sangat Pendek', -5.70, 3, '2020-07-07 20:45:01', '2020-07-07 20:45:01');
 
 -- --------------------------------------------------------
 
@@ -205,7 +218,8 @@ INSERT INTO `ortu` (`id`, `nama`, `no_tlp`, `alamat`, `created_at`, `updated_at`
 (1, 'bambang', '0812345678', 'gedongan', '2020-06-27 18:38:58', '2020-06-27 18:38:58'),
 (3, 'baba', '4353453454', 'saasaa', '2020-06-27 18:40:50', '2020-06-27 18:40:50'),
 (4, 'sinta', '0812536374841', 'jalan  baru', '2020-07-01 19:24:41', '2020-07-01 19:24:41'),
-(5, 'sasa', '081265841902', 'jalan damai 2', '2020-07-01 20:24:57', '2020-07-01 20:24:57');
+(5, 'sasa', '081265841902', 'jalan damai 2', '2020-07-01 20:24:57', '2020-07-01 20:24:57'),
+(6, 'Bayu Aries Wicaksono', '0812345678', 'jalan siaga', '2020-07-02 06:38:43', '2020-07-02 06:38:43');
 
 -- --------------------------------------------------------
 
@@ -307,6 +321,20 @@ CREATE TABLE `vaksin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
+-- Dumping data for table `vaksin`
+--
+
+INSERT INTO `vaksin` (`id`, `nama`, `bulan`, `created_at`, `updated_at`) VALUES
+(3, 'BCG', 0, NULL, NULL),
+(5, 'Polio-1', 2, '2020-07-05 01:53:45', '2020-07-05 01:53:45'),
+(7, 'Hepatitis B-2', 2, '2020-07-05 01:56:10', '2020-07-05 01:56:10'),
+(8, 'DTP-1', 2, '2020-07-05 01:57:19', '2020-07-05 01:57:19'),
+(9, 'Hepatitis B-3', 3, '2020-07-05 01:58:54', '2020-07-05 01:58:54'),
+(10, 'Hib-1', 2, '2020-07-05 01:59:12', '2020-07-05 01:59:12'),
+(11, 'Hepatitis B-1', 0, '2020-07-05 02:31:37', '2020-07-05 02:31:37'),
+(12, 'Polio-0', 0, '2020-07-05 02:32:00', '2020-07-05 02:32:00');
+
+--
 -- Indexes for dumped tables
 --
 
@@ -385,7 +413,7 @@ ALTER TABLE `vaksin`
 -- AUTO_INCREMENT for table `bayi`
 --
 ALTER TABLE `bayi`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `berat`
@@ -403,7 +431,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `gizi`
 --
 ALTER TABLE `gizi`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `kader`
@@ -421,7 +449,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `ortu`
 --
 ALTER TABLE `ortu`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tinggi`
@@ -439,7 +467,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `vaksin`
 --
 ALTER TABLE `vaksin`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

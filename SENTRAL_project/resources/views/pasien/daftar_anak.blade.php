@@ -1,6 +1,6 @@
 @extends('layouts.dashboard')
 
-@section('title','Daftar')
+@section('title','Daftar Anak')
 
 @section('container')
     
@@ -26,23 +26,9 @@
                           <input type="text" class="form-control" name="nama_anak" required="required">
                         </div>
 
-                        <div class="col-auto my-1">
-                         <label for="inputUsia">Usia</label>
-                         <select id="inputUsia" class="form-control" name="usia">
-                            <option selected>bulan...</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
-                            <option value="11">11</option>
-                            <option value="12">12</option>
-                          </select>
+                        <div class='form-group col-3'>
+                          <label class=''>Tanggal Lahir </label>
+                          <input class='form-control' type="date" name="tanggal_lahir">
                         </div>
 
                         <div class="form-group col-auto">

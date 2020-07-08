@@ -1,6 +1,6 @@
 @extends('layouts/dashboard')
 
-@section('title','Data')
+@section('title','Data Orang Tua')
 
 @section('container')
 
@@ -48,7 +48,9 @@
                         </tbody>
                       </table>
                     </div> 
-
+                    <div class="col-md-4 mt-3">
+                      {{ $ortu -> links() }}
+                    </div>
                 </div>
               </div><!-- /.card-body -->
             </div>
