@@ -11,6 +11,7 @@ use App\Tinggi;
 use App\Berat;
 use App\Gizi;
 use App\Vaksin;
+use Carbon;
 
 class KaderController extends Controller
 {
@@ -24,6 +25,10 @@ class KaderController extends Controller
      public function periksa($id)
     {
         $bayi = Bayi::find($id);
+        $year = Carbon\Carbon::parse($bayi->tanggal_lahir)->diff(\Carbon\Carbon::now())->format('%y');
+        $month = Carbon\Carbon::parse($bayi->tanggal_lahir)->diff(\Carbon\Carbon::now())->format('%m');
+        $bayi->usia = $month+$year*12;
+        $bayi->save();
         // dd($bayi->all());
     	return view('kader.periksa',['bayi'=>$bayi]);
     }

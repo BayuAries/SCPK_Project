@@ -15,7 +15,7 @@
             <div class="card">
               <div class="card-header">
                 <h3 class="card-title">
-                  Form Daftar Pasien
+                  <strong>Form Pendaftar Orang Tua</strong>
                 </h3>
               </div><!-- /.card-header -->
 

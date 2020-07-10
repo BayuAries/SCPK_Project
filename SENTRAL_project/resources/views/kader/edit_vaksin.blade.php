@@ -1,6 +1,6 @@
 @extends('layouts/dashboard')
 
-@section('title','Edit Vaksin')
+@section('title','Edit Data Vaksin')
 
 @section('container')
   <div class="content-wrapper">

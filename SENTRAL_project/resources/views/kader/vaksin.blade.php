@@ -1,6 +1,6 @@
 @extends('layouts/dashboard')
 
-@section('title','Data Vaksin')
+@section('title','Data Vaksin Rekomendasi')
 
 @section('container')
 
@@ -16,7 +16,7 @@
               <div class="card-header">
                 <h3 class="card-title">
                   <i class="fas fa-chart-pie mr-1"></i>
-                  Data Vaksin
+                  <strong>Data Vaksin</strong> 
                 </h3>
               </div><!-- /.card-header -->
               <div class="card-body">
@@ -75,8 +75,8 @@
                         <thead>
                           <tr>
                             <th scope="col">No</th>
-                            <th scope="col">Nama</th>
-                            <th scope="col">Usia (Bulan)</th> 
+                            <th scope="col">Nama Vaksin</th>
+                            <th scope="col">Untuk Usia Balita</th> 
                             <th scope="col">Opsi</th>             
                           </tr>
                         </thead>
@@ -85,10 +85,10 @@
                           <tr>
                             <th scope="row">{{$loop->iteration}}</th>
                             <td>{{$data->nama}}</td>
-                            <td>{{$data->bulan}}</td>
+                            <td>{{$data->bulan}} bulan</td>
                             <td>
                               <a href="/vaksin/edit/{{$data->id}}" class="btn btn-info" role="button" aria-pressed="true">Edit</a>|
-                              <a href="#" class="btn btn-danger konfirmasi" data-id="{{$data->id}}" >Delet</a>
+                              <a href="#" class="btn btn-danger konfirmasi" data-id="{{$data->id}}" >Hapus</a>
                             </td>
                           </tr>
                           @endforeach

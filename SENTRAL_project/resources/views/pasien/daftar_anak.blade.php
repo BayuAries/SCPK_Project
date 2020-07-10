@@ -1,6 +1,6 @@
 @extends('layouts.dashboard')
 
-@section('title','Daftar Anak')
+@section('title','Pendaftar Balita')
 
 @section('container')
     
@@ -13,7 +13,7 @@
             <div class="card">
               <div class="card-header">
                 <h3 class="card-title">
-                  Form Daftar Anak
+                  <strong>Form pendaftar Balita</strong>
                 </h3>
               </div><!-- /.card-header -->
               <div class="card-body">
@@ -22,7 +22,7 @@
                       <form action="/daftar_anak/{{$id}}/store" method="post">
                           {{ csrf_field() }}
                         <div class="form-group col-auto">
-                          <label for="inputtinggal">Nama Anak</label>
+                          <label for="inputtinggal">Nama Balita</label>
                           <input type="text" class="form-control" name="nama_anak" required="required">
                         </div>
 

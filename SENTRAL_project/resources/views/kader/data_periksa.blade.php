@@ -1,6 +1,6 @@
 @extends('layouts/dashboard')
 
-@section('title','Data Periksa Bayi')
+@section('title','Data Hasil Periksa Balita')
 
 @section('container')
 
@@ -16,7 +16,7 @@
               <div class="card-header">
                 <h3 class="card-title">
                   <i class="fas fa-chart-pie mr-1"></i>
-                  Data Pemeriksaan
+                  <strong> Data Hasil Pemeriksaan Balita</strong>
                 </h3>
               </div><!-- /.card-header -->
               <div class="card-body">
@@ -28,7 +28,7 @@
                         <thead>
                           <tr>
                             <th scope="col">No</th>
-                            <th scope="col">Nama</th>
+                            <th scope="col">Nama Balita</th>
                             <th scope="col">Hasil Pengukuran Tinggi</th>            
                             <th scope="col">Hasil Pengukuran Gizi Berat</th>
                             <th scope="col">Tanggal Perikas</th>
@@ -44,7 +44,7 @@
                             <td scope="row">{{$data->bb_u}}</td>
                             <td scope="row">{{$data->created_at->todatestring()}}</td>
                             <td>
-                              <a href="/gizi/detail/{{$data->id}}" class="btn btn-info" role="button" aria-pressed="true">Detail</a>
+                              <a href="/gizi/detail/{{$data->id}}" class="btn btn-info" role="button" aria-pressed="true">Detail Hasil</a>
                             </td>
                           </tr>
                           @endforeach

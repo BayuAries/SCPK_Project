@@ -41,7 +41,7 @@
                             <td>{{$data->no_tlp}}</td>
                             <td>{{$data->alamat}}</td>
                             <td>
-                              <a href="/daftar_anak/{{$data->id}}" class="btn btn-info" role="button" aria-pressed="true">Daftar Anak</a>
+                              <a href="/daftar_anak/{{$data->id}}" class="btn btn-info" role="button" aria-pressed="true">Daftarkan Balita</a>
                             </td>
                           </tr>
                           @endforeach

@@ -80,7 +80,7 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="/kader" class="brand-link">
-      <span class="brand-text font-weight-light">Posyandu</span>
+      <span class="brand-text font-weight-light">Posyandu Mangga</span>
     </a>
 
     <!-- Sidebar -->
@@ -113,21 +113,21 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/gizi" class="nav-link {{ Request::is('gizi*') ? 'active' : ''}}">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Data Periksa Bayi</p>
-                </a>
-              </li>
-              <li class="nav-item">
                 <a href="/data" class="nav-link {{ Request::is('data') ? 'active' : ''}}">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Data Orang Tua Bayi</p>
+                  <p>Data Orang Tua Balita</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="/anak" class="nav-link {{ Request::is('anak*') ? 'active' : ''}}">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Data Bayi</p>
+                  <p>Data Balita</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/gizi" class="nav-link {{ Request::is('gizi*') ? 'active' : ''}}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Data Hasil Periksa Balita</p>
                 </a>
               </li>
               <li class="nav-item">
@@ -136,6 +136,7 @@
                   <p>Data Vaksin</p>
                 </a>
               </li>
+
             </ul>
           </li> 
       </nav>

@@ -1,6 +1,6 @@
 @extends('layouts/dashboard')
 
-@section('title','Periksa Bayi')
+@section('title','Periksa Balita')
 
 @section('container')
 	
@@ -31,7 +31,7 @@
               <div class="card-header">
                 <h3 class="card-title">
                   <i class="fas fa-chart-pie mr-1"></i>
-                  Periksa
+                  <strong>Periksa Balita</strong>
                 </h3>
               </div><!-- /.card-header -->
               <div class="card-body">
@@ -42,8 +42,16 @@
                 {{ csrf_field() }}
               <fieldset disabled>
                 <div class="form-group col-auto my-1 mt-2">
-                  <label for="disabledTextInput">Nama</label>
+                  <label for="disabledTextInput">Nama Balita</label>
                   <input type="text" id="disabledTextInput" class="form-control" value="{{ $bayi->nama }}">
+                </div>
+                <div class="form-group col-auto my-1 mt-2">
+                  <label for="disabledTextInput">Usia</label>
+                  <input type="text" id="disabledTextInput" class="form-control" value="{{ $bayi->usia }} bulan">
+                </div>
+                <div class="form-group col-auto my-1 mt-2">
+                  <label for="disabledTextInput">Jenis Kelamin</label>
+                  <input type="text" id="disabledTextInput" class="form-control" value="{{ $bayi->jenis_kelamin }}">
                 </div>
               </fieldset>
 						  <div class="form-group col-auto my-1 mt-2">
@@ -58,8 +66,8 @@
 						    <label for="inputLingkar">Lingkar Kepala</label>
 						    <input type="text" class="form-control" id="" name="lingkar" placeholder="Masukan Lingkar Kepala (cm)">
 						  </div> -->
-              <div class=" form-group col-auto my-1 mt-2">
-              <button type="submit" class="btn btn-primary">Cek</button>                
+              <div class=" form-group col-auto my-1 mt-3">
+              <button type="submit" class="btn btn-primary">Periksa Balita</button>                
               </div>
 
 						</form>
