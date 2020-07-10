@@ -76,7 +76,7 @@
                           <tr>
                             <th scope="col">No</th>
                             <th scope="col">Nama</th>
-                            <th scope="col">Bulan</th> 
+                            <th scope="col">Usia (Bulan)</th> 
                             <th scope="col">Opsi</th>             
                           </tr>
                         </thead>
